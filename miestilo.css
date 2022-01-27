@@ -20,7 +20,10 @@ body {
     font-family: Helvetica, Geneva, Arial,
       SunSans-Regular, sans-serif
   }
+p{
+  font-style:italic;
 
+}
   ul.navbar li {
     background: white;
     margin: 0.5em 0;

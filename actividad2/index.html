@@ -188,8 +188,9 @@
  -->
     <script type="text/javascript">
         jQuery().ready(() => {
-            $('#exampleModal').modal('show');
+            
             if (localStorage.getItem("mostrar") == null) {
+                $('#exampleModal').modal('show');
                 setTimeout(() => {
                     $('#exampleModal').modal('hide');
                     localStorage.setItem("mostrar", true);

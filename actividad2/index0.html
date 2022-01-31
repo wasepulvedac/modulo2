@@ -8,8 +8,33 @@
 
     <title>Actividad 2</title>
     <style>
+
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            flex-direction: column;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100%;
         }
 
         .item {
@@ -30,9 +55,11 @@
         form {
             display: flex;
             flex: auto;
-            width: 100%;
+            width: 75%;
             flex-direction: column;
             flex-grow: 1;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         legend {
@@ -93,8 +120,9 @@
                 <div class="row">
                     <div class="col">
                         <label for="nombre">Nombres</label>
-                        <input id="nombre" name="nombre" maxlength="25" pattern="[A-Za-z\s]+" required type="text" class="form-control"
-                            autocapitalize="words" autocomplete="given-name" placeholder="Ingrese sus nombres" />
+                        <input id="nombre" name="nombre" maxlength="25" pattern="[A-Za-z\s]+" required type="text"
+                            class="form-control" autocapitalize="words" autocomplete="given-name"
+                            placeholder="Ingrese sus nombres" />
                         <div class="invalid-feedback">Ingrese sus nombres</div>
                     </div>
                 </div>
@@ -102,16 +130,16 @@
                 <div class="row">
                     <div class="col">
                         <label for="papellido">Primer apellido</label>
-                        <input id="papellido" name="papellido" maxlength="25" required pattern="[A-Za-z\s]+" type="text" class="form-control"
-                            autocapitalize="words" autocomplete="family-name"
+                        <input id="papellido" name="papellido" maxlength="25" required pattern="[A-Za-z\s]+" type="text"
+                            class="form-control" autocapitalize="words" autocomplete="family-name"
                             placeholder="Ingrese su primer apellido" />
                         <div class="invalid-feedback">Ingrese su primer apellido</div>
 
                     </div>
                     <div class="col">
                         <label for="sapellido">Segundo apellido</label>
-                        <input id="sapellido" name="sapellido" required pattern="[A-Za-z\s]+" maxlength="25" type="text" class="form-control"
-                            placeholder="Ingrese su segundo apellido" />
+                        <input id="sapellido" name="sapellido" required pattern="[A-Za-z\s]+" maxlength="25" type="text"
+                            class="form-control" placeholder="Ingrese su segundo apellido" />
                         <div class="invalid-feedback">Ingrese su segundo apellido</div>
                     </div>
                 </div>
@@ -119,8 +147,8 @@
                 <div class="row">
                     <div class="col">
                         <label for="domicilio">Domicilio</label>
-                        <input id="domicilio" name="domicilio" required pattern="[A-Za-z\s 0-9\.\-]+" maxlength="50" type="text" class="form-control"
-                            placeholder="Ingrese su domicilio" />
+                        <input id="domicilio" name="domicilio" required pattern="[A-Za-z\s 0-9\.\-]+" maxlength="50"
+                            type="text" class="form-control" placeholder="Ingrese su domicilio" />
                         <div class="invalid-feedback">Ingrese su domicilio</div>
                     </div>
                 </div>
@@ -178,24 +206,24 @@
                         <div class="alert alert-success alert-dismissible  d-flex align-items-center  fade hide"
                             style="display:none;" role="alert">
 
-                                <div class="col-6" style="text-align:center;">
-                                    <i class="bi-check-circle-fill">
-    
-                                    </i> &nbsp;&nbsp;&nbsp;<span>Datos ingresados
-                                        satisfactoriamente</span>&nbsp;&nbsp;&nbsp;<i class="bi-x-circle-fill close"
-                                        data-dismiss="alert" aria-label="Close"></i>
-                                </div>
-                       
-                                <p id="datos"></p>
+                            <div class="col-6" style="text-align:center;">
+                                <i class="bi-check-circle-fill">
+
+                                </i> &nbsp;&nbsp;&nbsp;<span>Datos ingresados
+                                    satisfactoriamente</span>&nbsp;&nbsp;&nbsp;<i class="bi-x-circle-fill close"
+                                    data-dismiss="alert" aria-label="Close"></i>
                             </div>
+
+                            <p id="datos"></p>
                         </div>
                     </div>
                 </div>
-            </fieldset>
+    </div>
+    </fieldset>
 
-      
- 
-        </form>
+
+
+    </form>
 
 
     </div>
@@ -222,30 +250,30 @@
                 event.preventDefault();
             });
             jQuery('form').submit(function (event) {
-                document.querySelector('.alert').style.display="none"
-                    //document.querySelector("form").querySelectorAll(".col").each((ind,item)=>{
-                    for (let item of document.querySelector("form").querySelectorAll(".col")) {
-                        let valid = false;
-                        for (let input of item.querySelectorAll("input")) {
-                            if (input.checkValidity()) {
-                                valid = true;
-                                break;
-                            }
-                        }
-                        if (valid) {
-                            item.querySelector(".invalid-feedback").style.display="none";
-                        }
-                        else {
-                            item.querySelector(".invalid-feedback").style.display="block";
+                document.querySelector('.alert').style.display = "none"
+                //document.querySelector("form").querySelectorAll(".col").each((ind,item)=>{
+                for (let item of document.querySelector("form").querySelectorAll(".col")) {
+                    let valid = false;
+                    for (let input of item.querySelectorAll("input")) {
+                        if (input.checkValidity()) {
+                            valid = true;
+                            break;
                         }
                     }
+                    if (valid) {
+                        item.querySelector(".invalid-feedback").style.display = "none";
+                    }
+                    else {
+                        item.querySelector(".invalid-feedback").style.display = "block";
+                    }
+                }
 
 
                 if (this.checkValidity()) {
                     document.querySelector('.alert').classList.remove('hide');
                     document.querySelector('.alert').classList.add('show');
                     document.querySelector('.alert').classList.add('show');
-                    document.querySelector('.alert').style.display="block"
+                    document.querySelector('.alert').style.display = "block"
 
                     let data = jQuery(document.querySelector('form')).serializeArray().reduce((res, it) => { res[it.name] = it.value; return res; }, {});
 
@@ -257,7 +285,7 @@
 
                 }
                 else {
-                    
+
                 }
                 event.preventDefault();
             });

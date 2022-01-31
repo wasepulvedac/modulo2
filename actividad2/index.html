@@ -30,11 +30,43 @@
         .resultado {
             text-align: center;
         }
+
+        .modal-content {
+            min-height: 100%;
+            height: auto;
+            border-radius: 0;
+            background: transparent;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <!-- Modal -->
+        <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <!--
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                -->
+                    <div class="modal-body">
+                        <img src="./splashscreen0.png" class="img-fluid rounded mx-auto d-block" />
+                    </div>
+                    <!--
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
         <form class="row g-3 needs-validation" novalidate method="get" action="" id="form">
             <fieldset>
                 <legend>Información Personal</legend>
@@ -86,18 +118,19 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="lalergico">¿Es Al&eacute;rgico?</label><br />
-                            <div style="flex-direction: row;align-content: center;justify-content: space-evenly;display: flex;">
-                            <div class="form-check form-check-inline">
-                                <input id="alergicosi" required class="form-check-input" name="alergico" type="radio"
-                                    value="si" required />
-                                <label class="form-check-label" for="alergicosi">Si</label>
+                            <div
+                                style="flex-direction: row;align-content: center;justify-content: space-evenly;display: flex;">
+                                <div class="form-check form-check-inline">
+                                    <input id="alergicosi" required class="form-check-input" name="alergico"
+                                        type="radio" value="si" required />
+                                    <label class="form-check-label" for="alergicosi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="alergicono" class="form-check-input" name="alergico" type="radio"
+                                        value="no" required />
+                                    <label class="form-check-label" for="alergicono">No</label>
+                                </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input id="alergicono" class="form-check-input" name="alergico" type="radio" value="no"
-                                    required />
-                                <label class="form-check-label" for="alergicono">No</label>
-                            </div>
-                        </div>
                             <div class="invalid-feedback">Debe indicar si es al&eacute;rgico</div>
                         </div>
                     </div>
@@ -155,6 +188,13 @@
  -->
     <script type="text/javascript">
         jQuery().ready(() => {
+            $('#exampleModal').modal('show');
+            if (localStorage.getItem("mostrar") == null) {
+                setTimeout(() => {
+                    $('#exampleModal').modal('hide');
+                    localStorage.setItem("mostrar", true);
+                }, 3000);
+            }
             // jQuery('.alert').hide();
             jQuery('.close').click(function (event) {
                 document.querySelector('.alert').classList.remove('show');
@@ -166,12 +206,12 @@
                     document.querySelector('.alert').classList.remove('hide');
                     document.querySelector('.alert').classList.add('show');
 
-                    let data = jQuery(document.querySelector('form')).serializeArray().reduce((res,it)=>{res[it.name] = it.value; return res; }, {});
+                    let data = jQuery(document.querySelector('form')).serializeArray().reduce((res, it) => { res[it.name] = it.value; return res; }, {});
 
                     let texto = `<p style="text-align:center;"><span class="item">Nombre:</span> ${data.nombre} ${data.papellido} ${data.sapellido}.
 <br/><span class="item">Edad:</span> ${data.edad}<br/><span class="item">Domicilio:</span>${data.domicilio}<br/>
 <span class="item">¿Es alérgico?</span>: ${data.alergico}<br/>
-<span class="item">Medicamentos contraindicados:</span> ${data.medicamentos??"no"}`;
+<span class="item">Medicamentos contraindicados:</span> ${data.medicamentos ?? "no"}`;
                     document.getElementById("datos").innerHTML = texto;
 
                 }
@@ -1077,7 +1117,6 @@
 
     </script>
     <script type="text/babel" data-type="module">
-        console.log(Tags)
         Tags.init("select:not(.ignore-tags)", {
             clearLabel: 'Clear tag',
             allowClear: true,

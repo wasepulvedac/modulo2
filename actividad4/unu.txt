@@ -1,0 +1,6 @@
+unu 
+
+opciones 
+galeria 
+lista inscritos
+form registro

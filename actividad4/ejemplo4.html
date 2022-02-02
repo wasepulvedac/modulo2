@@ -134,8 +134,19 @@
                 
                 $('#myModalLabel').text(jQuery(this).attr('title'));
 
-                ('#imagepreview').attr('alt', jQuery(this).attr('alt'));
-                ('#imagepreview').attr('title', jQuery(this).attr('title'));
+                $('#imagepreview').attr('alt', jQuery(this).attr('alt'));
+                $('#imagepreview').attr('title', jQuery(this).attr('title'));
+
+                $('#imagepreview').attr('src', jQuery(this).attr('src')); // here asign the image to the modal when the user click the enlarge link
+                $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+            });
+            jQuery(".gridv2>img").on("click", function () {
+                console.log(jQuery.attr('src'))
+                
+                $('#myModalLabel').text(jQuery(this).attr('title'));
+
+                $('#imagepreview').attr('alt', jQuery(this).attr('alt'));
+                $('#imagepreview').attr('title', jQuery(this).attr('title'));
 
                 $('#imagepreview').attr('src', jQuery(this).attr('src')); // here asign the image to the modal when the user click the enlarge link
                 $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function

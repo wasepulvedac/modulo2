@@ -133,6 +133,10 @@
                 console.log(jQuery.attr('src'))
                 
                 $('#myModalLabel').text(jQuery(this).attr('title'));
+
+                ('#imagepreview').attr('alt', jQuery(this).attr('alt'));
+                ('#imagepreview').attr('title', jQuery(this).attr('title'));
+
                 $('#imagepreview').attr('src', jQuery(this).attr('src')); // here asign the image to the modal when the user click the enlarge link
                 $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
             });
@@ -156,7 +160,7 @@
                     <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Image preview</h4>
                 </div>
                 <div class="modal-body">
-                    <img src="" id="imagepreview" class="w-100"/>
+                    <img src="" alt="" title="" id="imagepreview" class="w-100"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="closemodal">Cerrar</button>
@@ -343,8 +347,6 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="medicamentos">Medicamentos contraindicados</label>
-                                        <!--<input type="text" id="medicamentos" name="medicamentos" placeholder="Ingrese sus medicamentos contraindicados" class="form-control" data-role="tagsinput" />-->
-
                                         <select id="medicamentos" name="medicamentos" class="form-control"
                                             class="form-select" id="validationTags" multiple data-allow-new="true"
                                             data-allow-clear="true"></select>
@@ -375,9 +377,9 @@
 
                             </div>
                             <div class="col-6" style="text-align:center;">
-                                <i class="bi-check-circle-fill"></i> &nbsp;&nbsp;&nbsp;<span>Datos ingresados
-                                    satisfactoriamente</span>&nbsp;&nbsp;&nbsp;<i class="bi-x-circle-fill close"
-                                    data-dismiss="alert" aria-label="Close"></i>
+                                <em class="bi-check-circle-fill"></em> &nbsp;&nbsp;&nbsp;<span>Datos ingresados
+                                    satisfactoriamente</span>&nbsp;&nbsp;&nbsp;<em class="bi-x-circle-fill close"
+                                    data-dismiss="alert" aria-label="Close"></em>
                             </div>
                             <div class="col">
 
@@ -392,10 +394,11 @@
                 <div class="row">
                     <div class="col-12 d-flex flex-column justify-content-center align-items-center">
                         <table>
+                            <caption>Lista Invitados</caption>
                             <thead>
                                 <tr>
-                                    <th></th>
-                                    <th>Personal</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Personal</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -423,7 +426,7 @@
                 <div class="row">
                     <div class="col-12 d-flex flex-column justify-content-center align-items-center">
                         <!---->
-                        <iframe src="https://www.eldesconcierto.cl/" class="w-100 h-100"
+                        <iframe title="eldesconcierto" src="https://www.eldesconcierto.cl/" class="w-100 h-100"
                             style="min-height: 85vh;height: 85vh;">
 
                         </iframe>

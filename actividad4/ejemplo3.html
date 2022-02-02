@@ -11,39 +11,152 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: sans-serif;
+        }
+
+        /* ---- grid ---- */
+
+        .grid {
+            background: #fff;
+            max-width: 1200px;
+            max-height: 600px;
+        }
+
+        /* clearfix */
+        .grid:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* ---- grid-item ---- */
+
+        .grid-sizer,
+        .grid-item {
+            width: 12.5%;
+        }
+
+        .grid-item {
+            height: 150px;
+            float: left;
+            background-color: #fff;
+            border: 2px solid #fff;
+            border-color: #fff;
+            border-radius: 20px;
+        }
+
+        .grid-item--width2 {
+            width: 25%;
+        }
+
+        .grid-item--width3 {
+            width: 37.5%;
+        }
+
+        .grid-item--width4 {
+            width: 50%;
+        }
+
+        .grid-item--width5 {
+            width: 62.5%;
+        }
+
+        .grid-item--width6 {
+            width: 75%;
+        }
+
+        .grid-item--height2 {
+            height: 300px;
+        }
+
+        .grid-item--height3 {
+            height: 450px;
+        }
+
+        .grid-item--height4 {
+            height: 600px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+    </style>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                <img class="img-fluid" alt="Tigresa y sushi" title="Tigresa y sushi" src="./img/IMG_20210504_161832.jpg"/>
-            </div>
-            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                <img class="img-fluid" alt="Feuco" title="Feuco" src="./img/IMG_20210506_113344.jpg"/>
-            </div>
-            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                <img class="img-fluid" alt="Tomas" title="Tomas"  src="./img/IMG_20210513_150604.jpg"/>
-            </div>
-            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                <img class="img-fluid" alt="Feuco con capa" title="Feuco con capa"  src="./img/IMG_20210518_181702.jpg"/>
-            </div>
-            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                <img class="img-fluid" alt="Princesa y tomas"  title="Princesa y tomas" src="./img/IMG_20210526_012149.jpg"/>
-            </div>
+        <div class="container">
+            <div class="grid">
+                <div class="grid-sizer"></div>
+                <div class="grid-item grid-item--height4">
+                    <img alt="Tomas" title="Tomas" src="./img/00_v_tomas.jpg" />
+                </div>
+                <div class="grid-item grid-item--width2">
+                    <img alt="Tigresa y sushi" title="Tigresa y sushi" src="./img/01_h_tigresaysushi.jpg" />
+                </div>
+                <div class="grid-item grid-item--width2">
+                    <img alt="Feuco Triste" title="Feuco Triste" src="./img/03_h_feuco_triste.jpg" />
+                </div>
+                <div class="grid-item grid-item--height2">
+                    <img alt="Feuco con capa" title="Feuco con Capa" src="./img/04_v_feuco_con_capa.jpg" />
+                </div>
+                <div class="grid-item grid-item--height2">
+                    <img alt="Cholo y sushi" title="Cholo y sushi" src="./img/05_v_choloysushi.jpg" />
+                </div>
+                <div class="grid-item grid-item--height2">
+                    <img alt="Zapallo Italiano" title="Zapallo Italiano" src="./img/06_v_zapallo_italiano.jpg">
+                </div>
 
-            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                <img class="img-fluid" alt="Gringo"  title="Gringo"  src="./img/IMG_20210529_192151.jpg"/>
-            </div>
-            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                <img class="img-fluid" alt="Alcayota" title="Alcayota" src="./img/IMG_20210527_221911.jpg"/>
+                <div class="grid-item grid-item--height2">
+                    <img alt="Zapallo Italiano" title="Zapallo Italiano" src="./img/07_h_tigresaycholo.jpg" />
+                </div>
+                <div class="grid-item grid-item--height2">
+                    <img alt="Feuco en el exterior" title="Feuco en el exterior" src="./img/08_v_feuco.jpg" />
+                </div>
+
+                <div class="grid-item grid-item--width2">
+                    <img alt="Princesa y Tomas" title="Princesa y Tomas" src="./img/09_h_princesaytomas.jpg" />
+                </div>
+                <div class="grid-item grid-item--width2">
+                    <img alt="Tigresa Escondida" title="Tigresa Escondida" src="./img/10_h_tigresa_escondida.jpg" />
+                </div>
+
+                <div class="grid-item grid-item--width2">
+                    <img alt="Tigresa durmiendo" title="Tigresa durmiendo" src="./img/11_h_tigresa.jpg" />
+
+                </div>
+                <div class="grid-item grid-item--height2">
+                    <img alt="Alcayota" title="Alcayota" src="./img/12_v_alcayota.jpg" />
+                </div>
+
+                <div class="grid-item grid-item--width6">
+                    <img alt="Gringo" title="Gringo" src="./img/12_h_gringo.jpg" />
+
+                </div>
             </div>
         </div>
+    </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+        var elem = document.querySelector('.grid');
+        var msnry = new Masonry(elem, {
+            // options
+            itemSelector: '.grid-item',
+        });
+    </script>
 
 </body>
 

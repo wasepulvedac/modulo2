@@ -20,7 +20,6 @@
         table,
         td,
         th {
-            border: blue solid 2px;
             background-color: chocolate;
             color: crimson;
         }
@@ -29,16 +28,110 @@
             color: darkolivegreen;
         }
     </style>
+
+<style>
+    grid * {
+        box-sizing: border-box;
+    }
+
+
+
+    .grid {
+        background: #fff;
+        max-width: 1200px;
+        max-height: 600px;
+    }
+
+    /* clearfix */
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    /* ---- grid-item ---- */
+
+    .grid-sizer,
+    .grid-item {
+        width: 12.5%;
+    }
+
+    .grid-item {
+        height: 150px;
+        float: left;
+        background-color: #fff;
+        border: 2px solid #fff;
+        border-color: #fff;
+        border-radius: 20px;
+    }
+
+    .grid-item--width2 {
+        width: 25%;
+    }
+
+    .grid-item--width3 {
+        width: 37.5%;
+    }
+
+    .grid-item--width4 {
+        width: 50%;
+    }
+
+    .grid-item--width5 {
+        width: 62.5%;
+    }
+
+    .grid-item--width6 {
+        width: 75%;
+    }
+
+    .grid-item--height2 {
+        height: 300px;
+    }
+
+    .grid-item--height3 {
+        height: 450px;
+    }
+
+    .grid-item--height4 {
+        height: 600px;
+    }
+
+    .grid-item img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+    }
+</style>
+<style>
+    div.gridv2 {
+        column-count: 5;
+        column-width: 200px;
+        padding: 3px;
+    }
+
+    div.gridv2>img {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+</style>
+
 </head>
 
 <body>
     <div class="container">
-
+        <header>
         <div class="row">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs  flex-grow-1 justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
                         type="button" role="tab" aria-controls="profile" aria-selected="false">Galeria</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="galeria-tab" data-bs-toggle="tab" data-bs-target="#galeriav2"
+                        type="button" role="tab" aria-controls="galeriav2" aria-selected="false">Galeria v2</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="lista-tab" data-bs-toggle="tab" data-bs-target="#lista" type="button"
@@ -49,39 +142,84 @@
                         type="button" role="tab" aria-controls="contact" aria-selected="false">Formulario de
                         registro</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="diario-tab" data-bs-toggle="tab" data-bs-target="#diario"
+                        type="button" role="tab" aria-controls="diario" aria-selected="false">ElDesconcierto.cl</button>
+                </li>
             </ul>
+            </div>
+            </header>
 
 
 
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="row">
-                        <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                            <img class="img-fluid" alt="Tigresa y sushi" title="Tigresa y sushi"
-                                src="./img/IMG_20210504_161832.jpg" />
+                    <div class="container">
+                        <div class="grid">
+                            <div class="grid-sizer"></div>
+                            <div class="grid-item grid-item--height4">
+                                <img alt="Tomas" title="Tomas" src="./img/00_v_tomas.jpg" />
+                            </div>
+                            <div class="grid-item grid-item--width2">
+                                <img alt="Tigresa y sushi" title="Tigresa y sushi" src="./img/01_h_tigresaysushi.jpg" />
+                            </div>
+                            <div class="grid-item grid-item--width2">
+                                <img alt="Feuco Triste" title="Feuco Triste" src="./img/03_h_feuco_triste.jpg" />
+                            </div>
+                            <div class="grid-item grid-item--height2">
+                                <img alt="Feuco con capa" title="Feuco con Capa" src="./img/04_v_feuco_con_capa.jpg" />
+                            </div>
+                            <div class="grid-item grid-item--height2">
+                                <img alt="Cholo y sushi" title="Cholo y sushi" src="./img/05_v_choloysushi.jpg" />
+                            </div>
+                            <div class="grid-item grid-item--height2">
+                                <img alt="Zapallo Italiano" title="Zapallo Italiano" src="./img/06_v_zapallo_italiano.jpg">
+                            </div>
+            
+                            <div class="grid-item grid-item--height2">
+                                <img alt="Zapallo Italiano" title="Zapallo Italiano" src="./img/07_h_tigresaycholo.jpg" />
+                            </div>
+                            <div class="grid-item grid-item--height2">
+                                <img alt="Feuco en el exterior" title="Feuco en el exterior" src="./img/08_v_feuco.jpg" />
+                            </div>
+            
+                            <div class="grid-item grid-item--width2">
+                                <img alt="Princesa y Tomas" title="Princesa y Tomas" src="./img/09_h_princesaytomas.jpg" />
+                            </div>
+                            <div class="grid-item grid-item--width2">
+                                <img alt="Tigresa Escondida" title="Tigresa Escondida" src="./img/10_h_tigresa_escondida.jpg" />
+                            </div>
+            
+                            <div class="grid-item grid-item--width2">
+                                <img alt="Tigresa durmiendo" title="Tigresa durmiendo" src="./img/11_h_tigresa.jpg" />
+            
+                            </div>
+                            <div class="grid-item grid-item--height2">
+                                <img alt="Alcayota" title="Alcayota" src="./img/12_v_alcayota.jpg" />
+                            </div>
+            
+                            <div class="grid-item grid-item--width6">
+                                <img alt="Gringo" title="Gringo" src="./img/12_h_gringo.jpg" />
+            
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                            <img class="img-fluid" alt="Feuco" title="Feuco" src="./img/IMG_20210506_113344.jpg" />
-                        </div>
-                        <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                            <img class="img-fluid" alt="Tomas" title="Tomas" src="./img/IMG_20210513_150604.jpg" />
-                        </div>
-                        <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                            <img class="img-fluid" alt="Feuco con capa" title="Feuco con capa"
-                                src="./img/IMG_20210518_181702.jpg" />
-                        </div>
-                        <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                            <img class="img-fluid" alt="Princesa y tomas" title="Princesa y tomas"
-                                src="./img/IMG_20210526_012149.jpg" />
-                        </div>
-
-                        <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                            <img class="img-fluid" alt="Gringo" title="Gringo" src="./img/IMG_20210529_192151.jpg" />
-                        </div>
-                        <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
-                            <img class="img-fluid" alt="Alcayota" title="Alcayota"
-                                src="./img/IMG_20210527_221911.jpg" />
-                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="galeriav2" role="tabpanel" aria-labelledby="galeriav2-tab">
+                    <div class="gridv2">
+                        <img alt="Tomas" title="Tomas" src="./img/00_v_tomas.jpg" />
+                        <img alt="Tigresa y sushi" title="Tigresa y sushi" src="./img/01_h_tigresaysushi.jpg" />
+                        <img alt="Feuco Triste" title="Feuco Triste" src="./img/03_h_feuco_triste.jpg" />
+                        <img alt="Feuco con capa" title="Feuco con Capa" src="./img/04_v_feuco_con_capa.jpg" />
+                        <img alt="Cholo y sushi" title="Cholo y sushi" src="./img/05_v_choloysushi.jpg" />
+                        <img alt="Zapallo Italiano" title="Zapallo Italiano" src="./img/06_v_zapallo_italiano.jpg">
+                        <img alt="Zapallo Italiano" title="Zapallo Italiano" src="./img/07_h_tigresaycholo.jpg" />
+                        <img alt="Feuco en el exterior" title="Feuco en el exterior" src="./img/08_v_feuco.jpg" />
+                        <img alt="Princesa y Tomas" title="Princesa y Tomas" src="./img/09_h_princesaytomas.jpg" />
+                        <img alt="Tigresa Escondida" title="Tigresa Escondida" src="./img/10_h_tigresa_escondida.jpg" />
+                        <img alt="Tigresa durmiendo" title="Tigresa durmiendo" src="./img/11_h_tigresa.jpg" />
+                        <img alt="Alcayota" title="Alcayota" src="./img/12_v_alcayota.jpg" />
+                        <img alt="Gringo" title="Gringo" src="./img/12_h_gringo.jpg" />
                     </div>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="profile-tab">
@@ -235,6 +373,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab-pane fade" id="diario" role="tabpanel" aria-labelledby="interferencia.cl">
+                    <div class="row">
+                        <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                            <!---->
+                            <iframe src="https://www.eldesconcierto.cl/" class="w-100 h-100" style="min-height: 85vh;height: 85vh;">
+
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -1206,6 +1355,14 @@
             console.log(`document listener: #${event.target.id}`);
         });
     </script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script>
+            var elem = document.querySelector('.grid');
+            var msnry = new Masonry(elem, {
+                // options
+                itemSelector: '.grid-item',
+            });
+        </script>
 
 </body>
 

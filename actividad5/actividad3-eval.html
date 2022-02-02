@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora con eval</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+    <script type="text/javascript" src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+
+    <title>Calculadora</title>
+    <style>
+
+        .col {
+            border: solid 1 black !important;
+            margin: 0;
+            padding: 0 !important;
+            /*
+            padding-top: 10px;
+            padding-bottom: 10px;
+            */
+            align-items: center;
+        }
+
+        select {
+            margin: auto
+        }
+
+        input[type=button] {
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #validador {
+            display: none;
+            margin: auto;
+            height: 100%;
+        }
+    </style>
+    <script>
+        jQuery().ready(() => {
+            jQuery("#operador").on("change", () => {
+                let valor = event.target.value;
+                valor == '' ? $("#operador").css("border", "solid red") : $("#operador").css("border", "solid black");
+            });
+            jQuery("#resultado").on("change", () => {
+                let valor = parseFloat(event.target.value);
+                $("#operador").css("border", "solid ".concat(isNaN(valor) ? "red" : "black"));
+            });
+            jQuery("body").on("keyup", (event) => {
+                if (event.key == "Enter") { 
+                    ejecutarIgual(event)
+                }
+                else
+                    (event.key.match(/[0-9\.\+\-\*\/]/)?.index == 0) && $('#ops').val($("#ops").val().concat(event.key));
+            });
+            jQuery("[data-type=numero],[data-type=operador],[data-type=punto]").on("click", (event) => {
+                $("#validador").css("display", "none");
+                let valor = event.target.value;
+                let tipo = event.target.getAttribute('data-type');
+                $('#ops').val($("#ops").val().concat(valor));
+
+            });
+            let ejecutarIgual = (event) => {
+                let valor = event.target.value;
+                let tipo = event.target.getAttribute('data-type');
+                let res;
+                try {
+                    res = eval($("#ops").val());
+                } catch (error) {
+                    res = NaN;
+                }
+                $('#resultado').val(res).css("border", "solid 1px ".concat(isNaN(res) ? "red" : "#ced4da"));
+                $("#validador").css("display", "block").attr("class", isNaN(res) ? "bi-x-circle-fill close" : "bi-check-circle-fill").css("color", isNaN(res) ? "red" : "green");
+            };
+            jQuery("[data-type=ejecutar]").on("click", (event) => ejecutarIgual(event));
+            jQuery("[data-type=borrar]").on("click", (event) => {
+                $('#resultado').val("").css("border", "solid 1px #ced4da");
+                $('#ops').val("");
+                $("#validador").css("display", "none");
+            });
+
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora</h1>
+        </header>
+        <div class="container  w-50">
+            <div class="row">
+                <!--resultado-->
+                <div class="input-group mb-3">
+                    <input id="ops" type="text" class="form-control" placeholder="calculo" aria-label="">
+                    <span class="input-group-text">=</span>
+                    <input id="resultado" readonly type="number" class="form-control" placeholder="resultado" />
+                    <span class="align-middle" style="margin: auto;">
+                        <em id="validador" class="input-group-text" class=""></em>
+                    </span>
+                </div>
+            </div>
+            <div class="row  align-items-center">
+                <!--7,8,9,*-->
+                <div class="col col-12">
+                    <input type="button" class="btn btn-danger" data-type="borrar" readonly value="AC" />
+                </div>
+
+            </div>
+            <div class="row  align-items-center">
+                <!--7,8,9,*-->
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="7" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="8" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="9" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="/" />
+                </div>
+            </div>
+            <div class="row">
+                <!--4,5,6,*-->
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="4" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="5" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="6" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="*" />
+                </div>
+            </div>
+            <div class="row">
+                <!--4,5,6,- -->
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="1" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="2" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="3" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="-" />
+                </div>
+            </div>
+            <div class="row">
+                <!--1,2,3,+-->
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="0" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-primary ejecutar" data-type="punto" readonly value="." />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-success ejecutar" data-type="ejecutar" readonly value="=" />
+                </div>
+                <div class="col col-3">
+                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="+" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

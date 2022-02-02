@@ -1,0 +1,26 @@
+despertarme()
+if(tengoropalimpia()){
+    vestirme();
+}
+else{
+    vestirme(reciclarropa);
+}
+limpieza()
+if(haypan()){
+    tomardesayuno();
+}
+else{
+    iracomprarpan();
+    tomardesayuno();
+}
+conectarseaclases()
+
+ejemplo otras estructuras:
+while(tengosed()){
+    tomoagua()
+}
+switch(diasemana){
+    case 'lunes':rojo
+    case 'martes':verde
+    default azul
+}

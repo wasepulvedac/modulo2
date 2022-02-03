@@ -15,12 +15,3 @@ else{
 }
 conectarseaclases()
 
-ejemplo otras estructuras:
-while(tengosed()){
-    tomoagua()
-}
-switch(diasemana){
-    case 'lunes':rojo
-    case 'martes':verde
-    default azul
-}

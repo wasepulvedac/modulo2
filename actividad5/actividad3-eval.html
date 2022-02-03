@@ -15,7 +15,6 @@
 
     <title>Calculadora</title>
     <style>
-
         .col {
             border: solid 1 black !important;
             margin: 0;
@@ -31,7 +30,8 @@
             margin: auto
         }
 
-        input[type=button],button {
+        input[type=button],
+        button {
             width: 100%;
         }
 
@@ -61,14 +61,14 @@
                 // const down={'nombre':"wladimir","domicilo":"valdivia"};
                 // down="gato";
                 // down.persona="alejandro"
-                if (event.key == "Enter") { 
+                if (event.key == "Enter") {
                     ejecutarIgual(event)
                 }
                 else
                     (event.key.match(/[0-9\.\+\-\*\/]/)?.index == 0) && $('#ops').val($("#ops").val().concat(event.key));
             });
             jQuery("#ops").on("keydown", (event) => {
-               return  (event.key.match(/[0-9\.\+\-\*\/]/)?.index == 0) || event.key=='Backspace' ;
+                return (event.key.match(/[0-9\.\+\-\*\/]/)?.index == 0) || event.key == 'Backspace';
             });
             jQuery("[data-type=numero],[data-type=operador],[data-type=punto]").on("click", (event) => {
                 $("#validador").css("display", "none");
@@ -86,6 +86,9 @@
                 } catch (error) {
                     res = NaN;
                 }
+                if(!Number.isFinite(res)){
+                    res = NaN;
+                }
                 $('#resultado').val(res).css("border", "solid 1px ".concat(isNaN(res) ? "red" : "#ced4da"));
                 $("#validador").css("display", "block").attr("class", isNaN(res) ? "bi-x-circle-fill close" : "bi-check-circle-fill").css("color", isNaN(res) ? "red" : "green");
             };
@@ -96,9 +99,9 @@
                 $("#validador").css("display", "none");
             });
             jQuery("[data-type=retroceso]").on("click", (event) => {
-                let t=$('#ops').val();
-                if(t.length>0)
-                $('#ops').val(t.substr(0,t.length-1));
+                let t = $('#ops').val();
+                if (t.length > 0)
+                    $('#ops').val(t.substr(0, t.length - 1));
 
             });
         });
@@ -127,71 +130,72 @@
             <div class="row  align-items-center">
                 <!--7,8,9,*-->
                 <div class="col col-11">
-                    <input type="button" class="btn btn-danger" data-type="borrar" readonly value="AC" />
+                    <input type="button" class="btn btn-outline-danger" data-type="borrar" readonly value="AC" />
                 </div>
                 <div class="col col-1">
-                    <button class="btn" style="padding-right: 0px;padding-left: 0px;"><em class="btn btn-info fw-bold bi bi-backspace-fill" data-type="retroceso"></em></button>
+                    <button class="btn" style="padding-right: 0px;padding-left: 0px;"><em
+                            class="btn btn-outline-info fw-bold bi bi-backspace-fill" data-type="retroceso"></em></button>
 
                 </div>
             </div>
             <div class="row  align-items-center">
                 <!--7,8,9,*-->
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="7" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="7" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="8" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="8" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="9" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="9" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="/" />
+                    <input type="button" class="btn btn-outline-secondary operador" data-type="operador" readonly value="/" />
                 </div>
             </div>
             <div class="row">
                 <!--4,5,6,*-->
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="4" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="4" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="5" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="5" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="6" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="6" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="*" />
+                    <input type="button" class="btn btn-outline-secondary operador" data-type="operador" readonly value="*" />
                 </div>
             </div>
             <div class="row">
                 <!--4,5,6,- -->
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="1" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="1" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="2" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="2" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="3" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="3" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="-" />
+                    <input type="button" class="btn btn-outline-secondary operador" data-type="operador" readonly value="-" />
                 </div>
             </div>
             <div class="row">
                 <!--1,2,3,+-->
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary numero" data-type="numero" readonly value="0" />
+                    <input type="button" class="btn btn-outline-primary numero" data-type="numero" readonly value="0" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-primary ejecutar" data-type="punto" readonly value="." />
+                    <input type="button" class="btn btn-outline-primary ejecutar" data-type="punto" readonly value="." />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-success ejecutar" data-type="ejecutar" readonly value="=" />
+                    <input type="button" class="btn btn-outline-success ejecutar" data-type="ejecutar" readonly value="=" />
                 </div>
                 <div class="col col-3">
-                    <input type="button" class="btn btn-secondary operador" data-type="operador" readonly value="+" />
+                    <input type="button" class="btn btn-outline-secondary operador" data-type="operador" readonly value="+" />
                 </div>
             </div>
         </div>

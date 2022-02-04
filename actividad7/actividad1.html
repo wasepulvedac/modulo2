@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="Ctividad 1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .c1 {
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="c1">
+            <h1>Actividad 1</h1>
+            <p>Data generada de <a href="https://generatedata.com/generator" target="_blank">
+                    https://generatedata.com/generator</a></p>
+            <table id="tabla" aria-describedat="Lista personas">
+                <caption>Lista Personas</caption>
+                <thead>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edad</th>
+                </thead>
+                <tbody id="tbody"></tbody>
+
+            </table>
+        </div>
+        <div>
+            <h2>Info</h2>
+            nombres de personas y su edad en un arreglo
+            cantidad de personas en el arreglo?
+            ¿Cuantos Juan están en el arreglo?
+            ¿Cuál es el promedio de edad de las personas?
+            ¿Cuántos mayores de edad hay en el arreglo?
+            <ul>
+                <li>Personas en la lista <span id="npersonas"></span></li>
+                <li>Cuantos Juan hay? <span id="njuan"></span></li>
+                <li>Cuantos <input id="nombre" /> hay? <span id="nnombre"></span></li>
+                <li>Promedio de edad <span id="avg"></span></li>
+                <li>¿Cuántos mayores de edad hay en el arreglo?<span id="nmayedad"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let data = [{ "name": "Jaime Kemp", "edad": 26 }, { "name": "Grant Booker", "edad": 8 }, { "name": "Carl Callahan", "edad": 54 }, { "name": "Nayda Battle", "edad": 4 }, { "name": "Bell Shields", "edad": 21 }, { "name": "Kane Callahan", "edad": 58 }, { "name": "Griffith Lowery", "edad": 58 }, { "name": "Roth Frazier", "edad": 62 }, { "name": "Janna Gentry", "edad": 10 }, { "name": "Courtney Middleton", "edad": 66 }, { "name": "Erasmus Butler", "edad": 64 }, { "name": "Emerald Hines", "edad": 26 }, { "name": "Ursula Yang", "edad": 15 }, { "name": "Kibo Hooper", "edad": 36 }, { "name": "Conan Porter", "edad": 18 }, { "name": "Fuller Campbell", "edad": 17 }, { "name": "Cecilia Weiss", "edad": 35 }, { "name": "Nigel Fulton", "edad": 51 }, { "name": "Priscilla Bauer", "edad": 13 }, { "name": "Maia Parsons", "edad": 14 }, { "name": "Mara Montoya", "edad": 31 }, { "name": "Ciara Saunders", "edad": 61 }, { "name": "Urielle Snyder", "edad": 2 }, { "name": "Barclay Baird", "edad": 36 }, { "name": "Akeem Mcconnell", "edad": 40 }, { "name": "Jerome Sweet", "edad": 41 }, { "name": "Lavinia Tyler", "edad": 28 }, { "name": "Scarlet Pratt", "edad": 22 }, { "name": "Chester Bradford", "edad": 19 }, { "name": "Otto Camacho", "edad": 19 }, { "name": "Hall Mccall", "edad": 42 }, { "name": "Nola Pate", "edad": 1 }, { "name": "Bethany Burke", "edad": 60 }, { "name": "Jada Howell", "edad": 67 }, { "name": "Kasimir Hernandez", "edad": 7 }, { "name": "Jin Holden", "edad": 28 }, { "name": "Kameko Trujillo", "edad": 7 }, { "name": "Dale Howell", "edad": 8 }, { "name": "Ima Bray", "edad": 56 }, { "name": "Keefe Bond", "edad": 55 }, { "name": "Emerson Fuentes", "edad": 62 }, { "name": "Summer Stein", "edad": 35 }, { "name": "Dara Navarro", "edad": 20 }, { "name": "Dolan Pugh", "edad": 27 }, { "name": "Merrill Hayes", "edad": 16 }, { "name": "Beatrice Butler", "edad": 29 }, { "name": "Vaughan Knight", "edad": 3 }, { "name": "Quemby Price", "edad": 67 }, { "name": "Alice Clarke", "edad": 49 }, { "name": "Caesar Fowler", "edad": 57 }, { "name": "Plato Holcomb", "edad": 69 }, { "name": "Lavinia Gordon", "edad": 22 }, { "name": "Eric Sandoval", "edad": 32 }, { "name": "Kamal Burt", "edad": 69 }, { "name": "Kasimir Daniel", "edad": 12 }, { "name": "Emily Maldonado", "edad": 28 }, { "name": "Dolan Poole", "edad": 47 }, { "name": "Gannon Anthony", "edad": 21 }, { "name": "Ulric Mclaughlin", "edad": 66 }, { "name": "Beverly Mccullough", "edad": 12 }, { "name": "Cynthia Hardy", "edad": 1 }, { "name": "Mara House", "edad": 31 }, { "name": "Emma Atkinson", "edad": 22 }, { "name": "Shea Lindsey", "edad": 39 }, { "name": "Lara Bradshaw", "edad": 68 }, { "name": "Amaya Clark", "edad": 31 }, { "name": "Keaton Martin", "edad": 60 }, { "name": "Dominique West", "edad": 43 }, { "name": "Dean Donovan", "edad": 54 }, { "name": "Kibo Boyer", "edad": 66 }, { "name": "Erich Carroll", "edad": 11 }, { "name": "Susan Walter", "edad": 45 }, { "name": "Hayes Owen", "edad": 67 }, { "name": "Anjolie Aguilar", "edad": 41 }, { "name": "Veronica Santana", "edad": 5 }, { "name": "Donna Jackson", "edad": 26 }, { "name": "Cleo Skinner", "edad": 32 }, { "name": "Garrett Hughes", "edad": 21 }, { "name": "Darrel Reeves", "edad": 8 }, { "name": "Bernard Maddox", "edad": 26 }, { "name": "Chandler Fuentes", "edad": 54 }, { "name": "Elmo Wiley", "edad": 46 }, { "name": "Erin Osborn", "edad": 36 }, { "name": "Leo Delaney", "edad": 11 }, { "name": "Paki Dale", "edad": 69 }, { "name": "Amal Davenport", "edad": 61 }, { "name": "Carson Bright", "edad": 48 }, { "name": "Zane Nicholson", "edad": 45 }, { "name": "Natalie Espinoza", "edad": 49 }, { "name": "Cheryl Calhoun", "edad": 28 }, { "name": "Colleen Haynes", "edad": 15 }, { "name": "Elizabeth Mathews", "edad": 27 }, { "name": "Sebastian Justice", "edad": 54 }, { "name": "Troy Spencer", "edad": 37 }, { "name": "Mufutau Madden", "edad": 3 }, { "name": "Elmo Mills", "edad": 68 }, { "name": "Aspen Good", "edad": 34 }, { "name": "Lacey Oneil", "edad": 48 }, { "name": "Tatyana Richards", "edad": 5 }, { "name": "Len Moon", "edad": 57 }];
+
+        //document.getElementById("tbody").innerHTML = data.map(i => `<tr><td>${i.name}</td><td>${i.edad}</td></tr>`).join("\n")
+        // document.getElementById("npersonas").textContent = data.length;
+        // document.getElementById("njuan").textContent = data.filter((i) => i.name.indexOf('Juan') >= 0).length;
+        // document.getElementById("avg").textContent = data.map((i) => i.edad).reduce((a, b) => a + b, 0) / data.length;
+
+        // document.getElementById("nmayedad").textContent = data.filter((i) => i.edad > 18).length;
+        document.getElementById("nombre").onchange = (event) => {
+            let nombre = event.target.value;
+            document.getElementById("nnombre").textContent = data.filter((i) => i.name.indexOf(nombre) >= 0).length;
+        }
+        //fetch('https://generatedata.com/generator').then(i=>console.log(i))
+        let suma = 0;
+        let nJuan = 0;
+        let nmayoriaEdad = 0;
+        let filasTabla = '';
+        for (let index = 0; index < data.length; index++) {
+            const persona = data[index];
+            filasTabla += `<tr><td>${persona.name}</td><td>${persona.edad}</td></tr>`;
+            if (persona.name.indexOf("Juan") >= 0) {
+                nJuan++;
+            }
+            if(persona.edad>18){
+                nmayoriaEdad=nmayoriaEdad+1;
+            }
+            //suma+=persona.edad
+            suma=suma+persona.edad
+        }
+        document.getElementById("npersonas").textContent = data.length;
+        document.getElementById("njuan").textContent =nJuan;
+        document.getElementById("avg").textContent = suma/data.length;
+        document.getElementById("nmayedad").textContent = nmayoriaEdad;
+        document.getElementById("tbody").innerHTML=filasTabla
+
+
+    </script>
+</body>
+
+</html>

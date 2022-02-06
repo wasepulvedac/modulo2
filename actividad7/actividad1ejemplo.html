@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="actividad 1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: "Calibri";
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .c1 {
+            flex-direction: column;
+        }
+
+        li,
+        code,
+        .for {
+            text-align: left;
+        }
+
+        .for {
+            flex-direction: row;
+            display: flex;
+        }
+
+        code {
+            display: flex;
+            flex-direction: row;
+            font-weight: bold;;
+            font-size: larger;
+        }
+
+        .activo{
+            border: solid blue 1px;
+
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+        .destacar{
+            border: solid green 1px;
+            color: blue;
+        }
+        pre{
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="c1">
+            <h1>Actividad 1</h1>
+            <p>Data generada de <a href="https://generatedata.com/generator" target="_blank">
+                    https://generatedata.com/generator</a></p>
+            <table id="tabla" aria-describedat="Lista personas">
+                <caption>Lista Personas</caption>
+                <thead>
+                    <th scope="col"></th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edad</th>
+                </thead>
+                <tbody id="tbody"></tbody>
+
+            </table>
+        </div>
+        <div>
+            <h2>Info</h2>
+            <ul>
+                <li>Personas en la lista <span id="npersonas"></span></li>
+                <li>Cuantos Juan hay? <span id="njuan"></span></li>
+                <li>Cuantos <input id="nombre" /> hay? <span id="nnombre"></span></li>
+                <li>Promedio de edad <span id="avg"></span></li>
+                <li>¿Cuántos mayores de edad hay en el arreglo?<span id="nmayedad"></span></li>
+            </ul>
+            <hr />
+            <div class="for">
+
+                <pre>
+let suma = 0;
+let nJuan = 0;
+let nmayoriaEdad = 0;
+
+
+    VARIABLE       CONDICION             INCREMENTO
+    DE CONTROL                     
+                    <span id="condicion"></span> 
+for (let index = 0; index <= data.length; index++) {
+    <span id="_0">const persona = data[index];</span>
+    <span style="background-color: greenyellow;" >//persona.nombre <span id="pnombre"></span></span>
+    <span id="_1">if (persona.nombre.indexOf("Juan") >= 0) {</span>
+        <span id="_2">    nJuan++;</span>
+    <span id="_3">}</span>
+    <span style="background-color: greenyellow;">//persona.edad <span id="pedad" ></span></span>
+    <span id="_4">if(persona.edad>18){</span>
+        <span id="_5">    nmayoriaEdad=nmayoriaEdad+1;</span>
+    <span id="_6">}</span>
+    <span id="_7">suma=suma+persona.edad</span>
+}
+document.getElementById("npersonas").textContent = data.length;
+document.getElementById("njuan").textContent =nJuan;
+document.getElementById("avg").textContent = suma/data.length;
+document.getElementById("nmayedad").textContent = nmayoriaEdad;
+                    </pre>
+                <div class="preview">
+                    <button id="iniciar" type="button">Iniciar</button>
+                    <div>
+                        <p>index=<span class="tindex">0</span></p>
+                        <p>Persona[<span class="tindex"></span>]=<span id="tpersona"></span></p>
+                        <p>nJuan=<span id="tnjuan">0</span></p>
+                        <p>suma=<span id="tsuma">0</span></p>
+                        <p>nmayoriaEdad=<span id="tmayoriaedad">0</span></p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const data = [{ "nombre": "Jaime Kemp", "edad": 26 }, { "nombre": "Juan Booker", "edad": 8 }, { "nombre": "Carl Callahan", "edad": 54 }, { "nombre": "Nayda Battle", "edad": 4 }, { "nombre": "Bell Shields", "edad": 21 }, { "nombre": "Kane Callahan", "edad": 58 }, { "nombre": "Griffith Lowery", "edad": 58 }, { "nombre": "Juan Frazier", "edad": 62 }, { "nombre": "Janna Gentry", "edad": 10 }, { "nombre": "Courtney Middleton", "edad": 66 }, { "nombre": "Erasmus Butler", "edad": 64 }, { "nombre": "Emerald Hines", "edad": 26 }, { "nombre": "Ursula Yang", "edad": 15 }, { "nombre": "Kibo Hooper", "edad": 36 }, { "nombre": "Conan Porter", "edad": 18 }, { "nombre": "Fuller Campbell", "edad": 17 }, { "nombre": "Cecilia Weiss", "edad": 35 }, { "nombre": "Nigel Fulton", "edad": 51 }, { "nombre": "Priscilla Bauer", "edad": 13 }, { "nombre": "Maia Parsons", "edad": 14 }, { "nombre": "Mara Montoya", "edad": 31 }, { "nombre": "Ciara Saunders", "edad": 61 }, { "nombre": "Urielle Snyder", "edad": 2 }, { "nombre": "Barclay Baird", "edad": 36 }, { "nombre": "Akeem Mcconnell", "edad": 40 }, { "nombre": "Jerome Sweet", "edad": 41 }, { "nombre": "Lavinia Tyler", "edad": 28 }, { "nombre": "Scarlet Pratt", "edad": 22 }, { "nombre": "Chester Bradford", "edad": 19 }, { "nombre": "Otto Camacho", "edad": 19 }, { "nombre": "Hall Mccall", "edad": 42 }, { "nombre": "Nola Pate", "edad": 1 }, { "nombre": "Bethany Burke", "edad": 60 }, { "nombre": "Jada Howell", "edad": 67 }, { "nombre": "Kasimir Hernandez", "edad": 7 }, { "nombre": "Jin Holden", "edad": 28 }, { "nombre": "Kameko Trujillo", "edad": 7 }, { "nombre": "Dale Howell", "edad": 8 }, { "nombre": "Ima Bray", "edad": 56 }, { "nombre": "Keefe Bond", "edad": 55 }, { "nombre": "Emerson Fuentes", "edad": 62 }, { "nombre": "Summer Stein", "edad": 35 }, { "nombre": "Dara Navarro", "edad": 20 }, { "nombre": "Dolan Pugh", "edad": 27 }, { "nombre": "Merrill Hayes", "edad": 16 }, { "nombre": "Beatrice Butler", "edad": 29 }, { "nombre": "Vaughan Knight", "edad": 3 }, { "nombre": "Quemby Price", "edad": 67 }, { "nombre": "Alice Clarke", "edad": 49 }, { "nombre": "Caesar Fowler", "edad": 57 }, { "nombre": "Juan Holcomb", "edad": 69 }, { "nombre": "Lavinia Gordon", "edad": 22 }, { "nombre": "Eric Sandoval", "edad": 32 }, { "nombre": "Kamal Burt", "edad": 69 }, { "nombre": "Kasimir Daniel", "edad": 12 }, { "nombre": "Emily Maldonado", "edad": 28 }, { "nombre": "Dolan Poole", "edad": 47 }, { "nombre": "Gannon Anthony", "edad": 21 }, { "nombre": "Ulric Mclaughlin", "edad": 66 }, { "nombre": "Beverly Mccullough", "edad": 12 }, { "nombre": "Cynthia Hardy", "edad": 1 }, { "nombre": "Mara House", "edad": 31 }, { "nombre": "Emma Atkinson", "edad": 22 }, { "nombre": "Shea Lindsey", "edad": 39 }, { "nombre": "Lara Bradshaw", "edad": 68 }, { "nombre": "Amaya Clark", "edad": 31 }, { "nombre": "Keaton Martin", "edad": 60 }, { "nombre": "Dominique West", "edad": 43 }, { "nombre": "Dean Donovan", "edad": 54 }, { "nombre": "Kibo Boyer", "edad": 66 }, { "nombre": "Erich Carroll", "edad": 11 }, { "nombre": "Susan Walter", "edad": 45 }, { "nombre": "Hayes Owen", "edad": 67 }, { "nombre": "Anjolie Aguilar", "edad": 41 }, { "nombre": "Veronica Santana", "edad": 5 }, { "nombre": "Donna Jackson", "edad": 26 }, { "nombre": "Cleo Skinner", "edad": 32 }, { "nombre": "Garrett Hughes", "edad": 21 }, { "nombre": "Darrel Reeves", "edad": 8 }, { "nombre": "Bernard Maddox", "edad": 26 }, { "nombre": "Chandler Fuentes", "edad": 54 }, { "nombre": "Elmo Wiley", "edad": 46 }, { "nombre": "Erin Osborn", "edad": 36 }, { "nombre": "Leo Delaney", "edad": 11 }, { "nombre": "Juan Dale", "edad": 69 }, { "nombre": "Amal Davenport", "edad": 61 }, { "nombre": "Carson Bright", "edad": 48 }, { "nombre": "Zane Nicholson", "edad": 45 }, { "nombre": "Natalie Espinoza", "edad": 49 }, { "nombre": "Cheryl Calhoun", "edad": 28 }, { "nombre": "Colleen Haynes", "edad": 15 }, { "nombre": "Elizabeth Mathews", "edad": 27 }, { "nombre": "Sebastian Justice", "edad": 54 }, { "nombre": "Troy Spencer", "edad": 37 }, { "nombre": "Mufutau Madden", "edad": 3 }, { "nombre": "Elmo Mills", "edad": 68 }, { "nombre": "Aspen Good", "edad": 34 }, { "nombre": "Juan Oneil", "edad": 48 }, { "nombre": "Tatyana Richards", "edad": 5 }, { "nombre": "Len Moon", "edad": 57 }];
+        const sleep = (s) => new Promise(r => setTimeout(r, s * 1000));
+
+        const crearFilaTabla = (index, persona) => {
+            const fila = document.createElement("tr");
+            fila.className = "row_" + index;
+            const celda1 = document.createElement("td");
+            celda1.textContent = index;
+            const celda2 = document.createElement("td");
+            celda2.textContent = persona.nombre;
+            const celda3 = document.createElement("td");
+            celda3.textContent = persona.edad;
+            fila.appendChild(celda1);
+            fila.appendChild(celda2);
+            fila.appendChild(celda3);
+            document.getElementById("tbody").appendChild(fila);
+
+        };
+        //document.getElementById("tbody").innerHTML = data.map(i => `<tr><td>${i.nombre}</td><td>${i.edad}</td></tr>`).join("\n")
+        // document.getElementById("npersonas").textContent = data.length;
+        // document.getElementById("njuan").textContent = data.filter((i) => i.nombre.indexOf('Juan') >= 0).length;
+        // document.getElementById("avg").textContent = data.map((i) => i.edad).reduce((a, b) => a + b, 0) / data.length;
+
+        // document.getElementById("nmayedad").textContent = data.filter((i) => i.edad > 18).length;
+        document.getElementById("nombre").addEventListener("keyup", (event) => {
+
+            let nombre = event.target.value.toLowerCase();
+            console.log(nombre)
+            document.getElementById("nnombre").textContent = data.filter((i) => i.nombre.toLowerCase().indexOf(nombre) >= 0).length;
+        });
+        //fetch('https://generatedata.com/generator').then(i=>console.log(i))
+        let suma = 0;
+        let nJuan = 0;
+        let nmayoriaEdad = 0;
+        let filasTabla = '';
+        for (let index = 0; index < data.length; index++) {
+            const persona = data[index];
+            //filasTabla += `<tr><td>${persona.nombre}</td><td>${persona.edad}</td></tr>`;
+            if (persona.nombre.indexOf("Juan") >= 0) {
+                nJuan++;
+            }
+            if (persona.edad > 18) {
+                nmayoriaEdad = nmayoriaEdad + 1;
+            }
+            //suma+=persona.edad
+            suma = suma + persona.edad
+            crearFilaTabla(index, persona);
+        }
+        document.getElementById("npersonas").textContent = data.length;
+        document.getElementById("njuan").textContent = nJuan;
+        document.getElementById("avg").textContent = suma / data.length;
+        document.getElementById("nmayedad").textContent = nmayoriaEdad;
+        //document.getElementById("tbody").innerHTML = filasTabla
+        document.getElementById("iniciar").addEventListener('click', iniciarProceso);
+
+        async function iniciarProceso(event) {
+            let suma = 0;
+            let nJuan = 0;
+            let nmayoriaEdad = 0;
+            let filasTabla = '';
+            for (let index = 0; index < data.length; index++) {
+                //1 limpiar clases
+                document.querySelectorAll("tr.activo").forEach(x => x.classList.remove("activo"));
+                document.querySelectorAll(`.row_${index}`).forEach(y=>y.classList.add('activo'));
+
+                const persona = data[index];
+                document.getElementById("pnombre").textContent=persona.nombre;
+                document.getElementById("pedad").textContent=persona.edad;
+                document.getElementById("condicion").textContent=(index<=data.length)?"Verdadero":"Falso";
+                document.querySelectorAll(".tindex").forEach((i)=>i.textContent=index);
+                document.getElementById("tpersona").textContent=JSON.stringify(data[index]);
+                if (persona.nombre.indexOf("Juan") >= 0) {
+                    nJuan++;
+                    document.getElementById("_2").classList.add("destacar");
+                    document.getElementById("tnjuan").classList.add("destacar");
+                    await sleep(2);
+                    document.getElementById("_2").classList.remove("destacar");
+                    document.getElementById("tnjuan").classList.remove("destacar");
+                }
+                if (persona.edad > 18) {
+                    nmayoriaEdad = nmayoriaEdad + 1;
+                    document.getElementById("_5").classList.add("destacar");
+                    document.getElementById("tmayoriaedad").classList.add("destacar");
+                    await sleep(2);
+                    document.getElementById("_5").classList.remove("destacar");
+                    document.getElementById("tmayoriaedad").classList.remove("destacar");
+                }
+                //suma+=persona.edad
+                suma = suma + persona.edad
+                document.getElementById("tsuma").classList.add("destacar");
+                await sleep(0.5);
+                document.getElementById("tsuma").classList.remove("destacar");
+
+
+                document.getElementById("tnjuan").textContent=nJuan
+                document.getElementById("tsuma").textContent=suma;
+                document.getElementById("tmayoriaedad").textContent=nmayoriaEdad;
+                await sleep(1/10);
+
+            }
+        };
+
+
+    </script>
+</body>
+
+</html>

@@ -80,17 +80,17 @@
             if (persona.name.indexOf("Juan") >= 0) {
                 nJuan++;
             }
-            if(persona.edad>18){
-                nmayoriaEdad=nmayoriaEdad+1;
+            if (persona.edad > 18) {
+                nmayoriaEdad = nmayoriaEdad + 1;
             }
             //suma+=persona.edad
-            suma=suma+persona.edad
+            suma = suma + persona.edad
         }
         document.getElementById("npersonas").textContent = data.length;
-        document.getElementById("njuan").textContent =nJuan;
-        document.getElementById("avg").textContent = suma/data.length;
+        document.getElementById("njuan").textContent = nJuan;
+        document.getElementById("avg").textContent = suma / data.length;
         document.getElementById("nmayedad").textContent = nmayoriaEdad;
-        document.getElementById("tbody").innerHTML=filasTabla
+        document.getElementById("tbody").innerHTML = filasTabla
 
 
     </script>

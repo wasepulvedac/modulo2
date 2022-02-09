@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            font-family: Calibri;
+        }
+
+        pre>* {
+            font-family: monospace !important;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        td {
+            text-align: left;
+        }
+
+        #resultado {
+            font-family: monospace !important;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+            border: solid 1px;
+        }
+        .cerro{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <h1>Contar Cerros</h1>
+    <label for="npuntos">Ingresar Cantidad de puntos:<input id="npuntos" type="number" min="100" max="10000000"
+            value="10000" /></label>
+    <label for="ejecutar"><input id="ejecutar" type="button" value="Ejecutar" /></label>
+    <table>
+        <caption>Cerros encontrados: <span id="ncerros"></span></caption>
+        <tr id="fila">
+            <th scope=row>Altura</th>
+        </tr>
+    </table>
+
+    <div id="resultado"></div>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+    <!--
+    <canvas id="canvas"></canvas>
+    
+    <pre class="prettyprint">
+//Array(10000).fill(0)  -> crea un arreglo de largo 100000 y lo llena con 0
+//.map((it,ind)=>Math.round((Math.random()*2)-1))  -> Math.random genera un n° entre 0 y 1 , x2 y -1 es para que el resultado este entre -1 y 1 y con Math.round lo redondea al entero mas cercano
+//.reduce transforma el arreglo en un solo resultado, en este caso un objeto
+let resultado=Array(10000).fill(0).map((it,ind)=>Math.round((Math.random()*2)-1)).reduce((acumulado,elementoActual)=>{
+    acumulado.contTemp+=elementoActual;  //Voy sumando la latura
+    if(acumulado.contTemp>3 &&!acumulado.cerroNuevo){// Si pasa la altura de 3 Y cerroNuevo es falso
+        acumulado.cerroNuevo=true;//creo un nuevo cerro
+        acumulado.contCerros++;   //actualizo el contador
+    }
+    if(acumulado.cerroNuevo && acumulado.contTemp>acumulado.maxAltura)//si la altura acumulada es mayor a  la altura maxima , la actualizo
+        acumulado.maxAltura=acumulado.contTemp;
+    if(acumulado.cerroNuevo && acumulado.contTemp==0){ //si encontre un cerro pero llego la altura a 0
+        acumulado.lstCerro.push({'altura':acumulado.maxAltura}) //lo guardo en el arreglo
+        acumulado.contTemp=0; 
+        acumulado.maxAltura=0;//Vuelvo la altura maxima a 0
+        acumulado.cerroNuevo=false; //Para comenzar  a buscar un nuevo cerro
+    }
+    return acumulado;//Aqui se van guardando los resultados intermedios
+},
+{'contCerros':0,'contTemp':0,'cerroNuevo':false,'lstCerro':[],'maxAltura':0}//<--valor inicial con el que comienza reduce
+//contCerros cantidad de cerros que aparecen, esta definido x cualquier suma de numeros que pasen de 3
+//contTemp, voy guardando la altura acumulada hasta el momento
+//cerroNuevo, indica que estoy enun cerro y mientras no llegue a 0 de nuevo, no va a considerar otro cerro
+//lstCerro : voy a guardar la altura maxima de los cerros que vaya encontrando
+//maxAltura: si encuento un cerro, va a ser la maxima altura a la que llegó
+
+);
+if(resultado.cerroNuevo){ //si es true, quiere decir que quedo un cerro a medias, por lo que hay que guardarlo
+    resultado.lstCerro.push({altura:resultado.maxAltura});
+}
+console.log("Cerros encontrados",resultado.contCerros);
+console.log("Alturas de los cerros")
+console.table(resultado.lstCerro);
+            </pre>
+        -->
+    <script src="./actividad1-ContarCerros.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+
+</body>
+
+</html>

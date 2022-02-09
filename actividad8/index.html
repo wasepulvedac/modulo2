@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            font-family: Calibri;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        canvas {
+            border: solid red 1px;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center
+        }
+
+        table,
+        caption {
+            width: 100%;
+            flex: 1;
+    display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Contar Cerros</h1>
+    </header>
+    <article>
+        <div class="col">
+            <div class="row">
+                <label for="npuntos">Ingresar Cantidad de puntos:<input id="npuntos" type="number" min="10" max="100"
+                        value="20" /></label>
+                <label for="ejecutar"><input id="ejecutar" type="button" value="Ejecutar" /></label>
+
+            </div>
+            <div class="row"><span id="puntos"></span></div>
+            <div class="row">
+                <table>
+                    <caption>Cerros encontrados: <span id="ncerros"></span></caption>
+                    <tr id="fila">
+                        <th scope=row></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+    </article>
+    <script src="./var2.js"></script>
+</body>
+
+</html>

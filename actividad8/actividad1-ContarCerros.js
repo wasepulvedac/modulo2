@@ -8,11 +8,10 @@ function init(puntos) {
     .map((it, ind) => Math.round(Math.random() * 2 - 1));
   const resultado = npuntos.reduce(
     (acumulado, elementoActual, index) => {
+      acumulado.contTemp += elementoActual; //Voy sumando la altura
       if(acumulado.contTemp===0){
         acumulado.ultimoCero=index;
       }
-      acumulado.contTemp += elementoActual; //Voy sumando la altura
-
 
       if (acumulado.minAltura > acumulado.contTemp) {
         acumulado.minAltura = acumulado.contTemp;
@@ -35,7 +34,7 @@ function init(puntos) {
         //si encontre un cerro pero llego la altura a 0
         acumulado.lstCerro.push({
           altura: acumulado.maxAlturaCerro,
-          inicio: acumulado.ultimoCero,
+          inicio: acumulado.index,
           final: index,
         }); //lo guardo en el arreglo
         acumulado.contTemp = 0;

@@ -56,7 +56,7 @@ Importante: Solamente usando la consola.
                     <div class="col">
                         <div class="form-group">
                             <label for="edad">Edad</label>
-                            <input id="edad" name="edad" required type="number" min="1" max="110" class="form-control"
+                            <input id="edad" pattern="([\d]+)" name="edad" required type="number" min="1" max="110" class="form-control"
                                 placeholder="Ingrese su edad" />
                             <div class="invalid-feedback">Ingrese su edad</div>
                         </div>
@@ -65,7 +65,7 @@ Importante: Solamente usando la consola.
                         <div class="col">
                             <div class="form-group">
                                 <label for="edad">Peso</label>
-                                <input id="peso" name="peso" required type="number" min="1" max="110"
+                                <input id="peso" pattern="([\d]+)"  name="peso" required type="number" min="1" max="110"
                                     class="form-control" placeholder="Ingrese su peso" />
                                 <div class="invalid-feedback">Ingrese su peso</div>
                             </div>

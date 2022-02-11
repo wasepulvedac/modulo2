@@ -1,0 +1,4 @@
+Adjunto mi url de repositorio de actividades del modulo 2
+https://github.com/wasepulvedac/modulo2
+y el enlace a github pages donde lo puede ver desplegado como pagina
+https://wasepulvedac.github.io/modulo2/

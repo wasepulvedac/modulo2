@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feriados 2022</title>
+    <style>
+        *{
+            font-family: 'Calibri,Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Feriados</h1>
+    <table>
+
+        <head>
+            <th>Fecha</th>
+            <th>Feriado</th>
+            <th>Tipo</th>
+        </head>
+        <tbody id="ejemplo1"></tbody>
+    </table>
+    <hr/>
+    <table>
+
+        <head>
+            <th>Fecha</th>
+            <th>Feriado</th>
+            <th>Tipo</th>
+        </head>
+        <tbody id="ejemplo2"></tbody>
+    </table>
+    <script>
+        window.onload = async function () {
+            const table1 = document.querySelector("#ejemplo1");//Primera tabla , la voy a llebar con innerHtml
+            const table2 = document.querySelector("#ejemplo2");//esta se crea con DOM
+            //Forma async para manejear los datos, se le debe poner async a la funcion superior, es lo mas nuevo
+            let raw;
+            let data;
+            try {
+                raw= await fetch("https://apis.digital.gob.cl/fl/feriados/2022");
+                data= await raw.json();
+                console.log("data",data)
+            } catch (error) {
+                //Aqui caigo si hay un error
+            }
+
+            //Con Callback
+            fetch("https://apis.digital.gob.cl/fl/feriados/2022").then(function (data) {
+                console.log("raw",data);//Data seria la peticion raw,debo llamar a data.json() para obtener la data
+                data.json().then(function (resultado) {
+                    console.log("resultado",resultado)
+                    //Forma1 , con innerHTML
+                    let tabla = '';
+                    for (let index = 0; index < resultado.length; index++) {
+                        const feriado = resultado[index];
+                        tabla += `<tr>
+                    <td>${feriado.nombre}</td>
+                    <td>${feriado.fecha}</td>
+                    <td>${feriado.tipo}</td>
+                    </tr>`;
+                    }
+                    table1.innerHTML = tabla;
+
+                    //Forma2, usando el DOM
+                    table2.replaceChildren();//Primero vacio la tabla
+                    for (let index = 0; index < resultado.length; index++) {
+                        const feriado = resultado[index];
+                        table2.appendChild(crearFila(feriado,index));//agrego la fila a la tabla
+                    }
+                }).catch((e)=>{
+                    //Aqui llego si hubo un erroro
+                })
+            });
+        }
+        function crearFila(feriado,index){
+            const tr=document.createElement("tr");//Creo una fila
+            const td1=document.createElement("td"); /*creo la celda */   td1.textContent=feriado.nombre;  //le asigno texto a la celda
+            const td2=document.createElement("td");     td2.textContent=feriado.fecha;
+            const td3=document.createElement("td");     td3.textContent=feriado.tipo;
+            tr.appendChild(td1);//asocio fila con celda
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            return tr; //retorno la fila
+        }
+    </script>
+
+</body>
+
+</html>

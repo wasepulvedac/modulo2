@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jqueryrouter@2.2.11/dist/js/jquery.router.min.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      div.row {
+        margin-top: 5vh;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+
+    <title>Auto Limpio</title>
+  </head>
+  <body>
+    <main class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="registrotrabajo-tab"
+            data-toggle="tab"
+            href="#tabRegistroTrabajo"
+            role="tab"
+            aria-controls="tabRegistroTrabajo"
+            aria-selected="true"
+            >Registro Usuario</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="profile-tab"
+            data-toggle="tab"
+            href="#profile"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="false"
+            >Profile</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="contact-tab"
+            data-toggle="tab"
+            href="#contact"
+            role="tab"
+            aria-controls="contact"
+            aria-selected="false"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="tab-content" id="tabRegistroTrabajo">
+        <div
+          class="tab-pane fade show active"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="tabRegistroTrabajo"
+        >
+          <div class="form" id="registroVehiculo">
+            <form
+              id="frmregistrotrabajo"
+              class="row g-3 needs-validation"
+              novalidate
+              method="get"
+              action=""
+            >
+              <fieldset>
+                <!--<legend>Ingrese su orden de trabajo</legend>-->
+                <div class="row">
+                  <div class="col-xs-12 col-lg-2">
+                    <div class="form-group">
+                      <label for="tipoVehiculo">RUT</label>
+                      <input
+                        id="rut"
+                        name="rut"
+                        maxlength="12"
+                        size="12"
+                        required
+                        type="text"
+                        class="form-control"
+                        placeholder="Ingrese su RUT."
+                      />
+                      <div class="invalid-feedback">Ingrese su RUT</div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-lg-5">
+                    <div class="form-group">
+                      <label for="nombre">Nombre</label>
+                      <input
+                        id="nombre"
+                        name="nombre"
+                        maxlength="30"
+                        size="30"
+                        required
+                        type="text"
+                        class="form-control"
+                        placeholder="Ingrese su(s) nombre(s)."
+                      />
+                      <div class="invalid-feedback">Ingrese su nombre</div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-lg-5">
+                    <div class="form-group">
+                      <label for="apellido">Apellido</label>
+                      <input
+                        id="apellido"
+                        name="apellido"
+                        maxlength="30"
+                        size="30"
+                        required
+                        type="text"
+                        class="form-control"
+                        placeholder="Ingrese su(s) apellido(s)."
+                      />
+                      <div class="invalid-feedback">Ingrese su apellido</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-9">
+                <div class="form-group">
+                  <label for="direccion">Dirección</label>
+                  <input
+                    id="direccion"
+                    name="direccion"
+                    maxlength="30"
+                    size="30"
+                    required
+                    type="text"
+                    class="form-control"
+                    placeholder="Ingrese su direccion."
+                  />
+                  <div class="invalid-feedback">Ingrese su direccion</div>
+                </div>
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                <div class="form-group">
+                  <label for="comuna">Comuna</label>
+                  <select
+                    id="comuna"
+                    name="comuna"
+                    class="form-control"
+                    placeholder="Ingrese su comuna"
+                  >
+                  <option disabled value></option>
+                  <option value="1">Valdivia</option>
+                  <option value="2">Temuco</option>
+                  <option value="3">Osorno</option>
+                  <option value="4">Puc&oacute;n</option>
+                  <option value="5">Panguipulli</option>
+                </select>
+                  <div class="invalid-feedback">
+                    Ingrese su comuna de residencia.
+                  </div>
+                  </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <input type="submit" value="Registrar" class="btn btn-outline-primary"/>
+                    </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="profile"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+          ...
+        </div>
+        <div
+          class="tab-pane fade"
+          id="contact"
+          role="tabpanel"
+          aria-labelledby="contact-tab"
+        >
+          ...
+        </div>
+      </div>
+    </main>
+    <div class="container">
+      <!--
+    <div class="form" id="registroVehiculo" >
+        <form  id="frmregistroVehiculo"  class="row g-3 needs-validation" novalidate method="get" action="">
+            <fieldset>
+                <legend>Ingrese las caracteristicas del vehiculo</legend>
+                <div class="form-group">
+                    <label for="tipoVehiculo">Tipo de Vehiculo</label>
+                    <input id="rut" name="rut" maxlength="15" required type="text"
+                        class="form-control"
+                        placeholder="Ingrese su RUT." pattern="[\d]+(\.)*[\d]{3}+(\.)*[\d]{3}(\-)*[\dkK]{1}" />
+                    <div class="invalid-feedback">Ingrese su RUT</div>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" maxlength="15" required type="text"
+                        class="form-control"
+                        placeholder="Ingrese su nombre." pattern="[\w]{3,}[\s]*[\w]*" />
+                    <div class="invalid-feedback">Ingrese su nombre</div>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input id="apellido" name="apellido" maxlength="15" required type="text"
+                        class="form-control"
+                        placeholder="Ingrese su apellido." pattern="[\w]{3,}[\s]*[\w]*" />
+                    <div class="invalid-feedback">Ingrese su apellido</div>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input id="direccion" name="direccion" maxlength="30" required type="text"
+                        class="form-control"
+                        placeholder="Ingrese su direccion." pattern="[\w\s\d\W]{5,}" />
+                    <div class="invalid-feedback">Ingrese su direccion</div>
+                </div>
+                <div class="form-group">
+                    <label for="comuna">Comuna</label>
+                    <select id="comuna" name="comuna"
+                        class="form-control"
+                        placeholder="Ingrese su comuna" ></select>
+                    <div class="invalid-feedback">Ingrese su comuna de residencia.</div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+-->
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

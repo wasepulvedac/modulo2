@@ -206,7 +206,7 @@
                     document.querySelector('.alert').classList.remove('hide');
                     document.querySelector('.alert').classList.add('show');
 
-                    let data = jQuery(document.querySelector('form')).serializeArray().reduce((res, it) => { res[it.name] = it.value; return res; }, {});
+                    let data = jQuery(document.querySelector('form')).serializeArray().reduce((res, it) => { res[it.name] =  it.value; return res; }, {});
 
                     let texto = `<p style="text-align:center;"><span class="item">Nombre:</span> ${data.nombre} ${data.papellido} ${data.sapellido}.
 <br/><span class="item">Edad:</span> ${data.edad}<br/><span class="item">Domicilio:</span>${data.domicilio}<br/>
